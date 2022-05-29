@@ -9,3 +9,11 @@ const faceModels = {
   happy: "😄",
   sad: "😞"
 };
+
+class App extends React.Component {
+
+
+
+}
+
+export default App;
