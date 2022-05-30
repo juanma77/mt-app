@@ -45,8 +45,45 @@ class App extends React.Component {
     } catch ( error ) {
 
       this.log( error.name, error.message, error.stack );
-      
+
     }
+  };
+
+  reproduce = async () => {
+    if (
+      this.screen.current.paused ||
+      this.screen.current.ended ||
+      !faceApi.nets.tinyFaceDetector.params
+    ) {
+      setTimeout(() => this.reproduce());
+      return;
+    }
+
+    const faceConfiguration = new faceApi.TinyFaceDetectorOptions({
+      inputSize: 512,
+      scoreThreshold: 0.5
+    });
+
+    const output = await faceApi
+      .detectSingleFace(this.video.current, faceConfiguration)
+      .withFaceExpressions();
+
+    if (output) {
+      
+      this.log(output);
+
+      const expressions = output.expressions.reduce(
+        (precision, { expression, probability }) => {
+          precision.push([faceMap[expression], probability]);
+          return precision;
+        },
+        []
+      );
+      this.log(expressions);
+      this.setState(() => ({ expressions }));
+    }
+
+    setTimeout(() => this.onPlay(), 1000);
   };
 
  
