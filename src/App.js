@@ -1,7 +1,7 @@
 import React from 'react';
 import * as faceApi from 'face-api.js';
 
-const faceModels = {
+const faceMap = {
   anger: "🤬",
   surprise: "😲",
   fear: "😖",
@@ -12,37 +12,44 @@ const faceModels = {
 
 class App extends React.Component {
 
-  startVideo = React.createRef();
+  screen = React.createRef();
 
   state = { 
-    models: [] 
+    faces: [] 
   };
 
   componentDidMount() {
 
-    this.run();
+    this.execute();
 
   }
 
-  run = async () => {
+  execute = async () => {
    
     try {
 
-      await faceApi.nets.tinyFaceDetector.load("/models/");
+      await faceApi.nets.tinyFaceDetector.load( "/models/" );
 
-      await faceApi.loadFaceExpressionModel(`/models/`);
+      await faceApi.loadFaceExpressionModel( `/models/` );
       
       this.mediaStream = await navigator.mediaDevices.getUserMedia({
-        startVideo: { facingMode: "user" }
+
+        screen: { 
+          mode: "user" 
+        }
+
       });
 
-      this.startVideo.current.srcObject = this.mediaStream;
-    } catch (e) {
-      this.log(e.name, e.message, e.stack);
+      this.screen.current.srcObject = this.mediaStream;
+
+    } catch ( error ) {
+
+      this.log( error.name, error.message, error.stack );
+      
     }
   };
 
-
+ 
 
 }
 
