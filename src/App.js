@@ -90,7 +90,13 @@ class App extends React.Component {
     return (
 
       <div className="App">
-        <h1>Reconocimiento de intrusos</h1>
+
+        <nav class="navbar navbar-dark bg-dark">
+          <a class="navbar-brand" href="/">
+            IntrusionDetectionApp
+          </a>
+        </nav>
+
         <div>
 
           {this.state.expressions.sort((expressionsUnordered, expressionsOrdered) => expressionsOrdered[1] - expressionsUnordered[1]).filter((i, j) => j < 3).map(([originalExpressions, finalExpressions]) => (
