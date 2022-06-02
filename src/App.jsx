@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import * as faceApi from 'face-api.js';
 
 const faceModel = {
@@ -13,7 +13,7 @@ const faceModel = {
 
 };
 
-class App extends React.Component {
+class App extends Component {
 
   video = React.createRef();
 
