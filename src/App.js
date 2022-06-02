@@ -1,93 +1,112 @@
 import React from 'react';
 import * as faceApi from 'face-api.js';
 
-const faceMap = {
-  anger: "🤬",
-  surprise: "😲",
-  fear: "😖",
+const faceModel = {
+
   neutral: "😶",
   happy: "😄",
-  sad: "😞"
+  sad: "😞",
+  angry: "🤬",
+  fearful: "😖",
+  disgusted: "🤢",
+  surprised: "😲"
+
 };
 
 class App extends React.Component {
 
-  screen = React.createRef();
+  video = React.createRef();
 
   state = { 
-    faces: [] 
+    expressions: [] 
   };
 
   componentDidMount() {
-
     this.execute();
-
   }
 
   execute = async () => {
    
     try {
 
-      await faceApi.nets.tinyFaceDetector.load( "/models/" );
+      await faceApi.nets.tinyFaceDetector.load('/models/');
+      await faceApi.loadFaceExpressionModel('/models/');
 
-      await faceApi.loadFaceExpressionModel( `/models/` );
-      
       this.mediaStream = await navigator.mediaDevices.getUserMedia({
 
-        screen: { 
-          mode: "user" 
+        video: { 
+          detection: "user" 
         }
 
       });
 
-      this.screen.current.srcObject = this.mediaStream;
+      this.video.current.srcObject = this.mediaStream;
 
-    } catch ( error ) {
+    } 
+    catch (error) {
 
-      this.log( error.name, error.message, error.stack );
-
+      console.log( error );
+    
     }
   };
 
   reproduce = async () => {
-    if (
-      this.screen.current.paused ||
-      this.screen.current.ended ||
-      !faceApi.nets.tinyFaceDetector.params
-    ) {
+
+    if(this.video.current.paused || this.video.current.ended || !faceApi.nets.tinyFaceDetector.params) {
+      
       setTimeout(() => this.reproduce());
+
       return;
     }
 
-    const faceConfiguration = new faceApi.TinyFaceDetectorOptions({
+    const options = new faceApi.TinyFaceDetectorOptions({
       inputSize: 512,
       scoreThreshold: 0.5
     });
 
-    const output = await faceApi
-      .detectSingleFace(this.video.current, faceConfiguration)
-      .withFaceExpressions();
+    const output = await faceApi.detectSingleFace(this.video.current, options).withFaceExpressions();
 
     if (output) {
       
-      this.log(output);
+      const expressions = output.expressions.reduce((precision, { expression, probability }) => {
 
-      const expressions = output.expressions.reduce(
-        (precision, { expression, probability }) => {
-          precision.push([faceMap[expression], probability]);
+          precision.push([faceModel[expression], probability]);
           return precision;
+
         },
         []
       );
-      this.log(expressions);
-      this.setState(() => ({ expressions }));
+      
+      this.setState(() => (
+        { expressions }
+      ));
     }
 
-    setTimeout(() => this.onPlay(), 1000);
+    setTimeout(() => this.reproduce(), 1000);
+
   };
 
- 
+  render() {
+    return (
 
+      <div className="App">
+        <h1>Reconocimiento de intrusos</h1>
+        <div>
+
+          {this.state.expressions.sort((expressionsUnordered, expressionsOrdered) => expressionsOrdered[1] - expressionsUnordered[1]).filter((i, j) => j < 3).map(([originalExpressions, finalExpressions]) => (
+              <p key={originalExpressions + finalExpressions}>
+                {originalExpressions} {finalExpressions}
+              </p>
+            ))}
+            
+        </div>
+        <div>
+          <video onPlay={this.reproduce} ref={this.video} autoPlay />
+        </div>
+      </div>
+
+    );
+  }
 }
 
-export default App;
+export default App; 
