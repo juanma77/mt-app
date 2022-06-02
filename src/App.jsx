@@ -87,6 +87,7 @@ class App extends Component {
   };
 
   render() {
+
     return (
 
       <div className="App">
@@ -96,9 +97,6 @@ class App extends Component {
             IntrusionDetectionApp
           </a>
         </nav>
-
-
-
 
         <div className="card">
           <div className="card-body">
@@ -111,30 +109,25 @@ class App extends Component {
               Neutral face = No intruder
 
             </p>
+          <div>
 
-
-            <div>
-
-          {this.state.expressions.sort((expressionsUnordered, expressionsOrdered) => expressionsOrdered[1] - expressionsUnordered[1]).filter((i, j) => j < 3).map(([originalExpressions, finalExpressions]) => (
+            {this.state.expressions.sort((expressionsUnordered, expressionsOrdered) => expressionsOrdered[1] - expressionsUnordered[1]).filter((i, j) => j < 3).map(([originalExpressions, finalExpressions]) => (
               <p key={originalExpressions + finalExpressions}>
                 {originalExpressions} {finalExpressions}
               </p>
             ))}
-            
         </div>
         <div>
           <video onPlay={this.reproduce} ref={this.video} autoPlay />
         </div>
-           
           </div>
         </div>
-
-
-        
       </div>
-
+      
     );
+
   }
+
 }
 
 export default App; 
