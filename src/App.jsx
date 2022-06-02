@@ -97,7 +97,23 @@ class App extends Component {
           </a>
         </nav>
 
-        <div>
+
+
+
+        <div className="card">
+          <div className="card-body">
+            <h5 className="card-title">You're being recorder!</h5>
+            <h6 className="card-subtitle mb-2 text-muted">Proceeed with caution</h6>
+            <p className="card-text">
+
+              Happy face = No intruder
+              Angry face = Intruder 
+              Neutral face = No intruder
+
+            </p>
+
+
+            <div>
 
           {this.state.expressions.sort((expressionsUnordered, expressionsOrdered) => expressionsOrdered[1] - expressionsUnordered[1]).filter((i, j) => j < 3).map(([originalExpressions, finalExpressions]) => (
               <p key={originalExpressions + finalExpressions}>
@@ -109,6 +125,12 @@ class App extends Component {
         <div>
           <video onPlay={this.reproduce} ref={this.video} autoPlay />
         </div>
+           
+          </div>
+        </div>
+
+
+        
       </div>
 
     );
