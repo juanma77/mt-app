@@ -55,6 +55,47 @@ function App() {
 
   }
 
+  // When recording started, we perform all operations we need on the user's face, so we draw landmarks, expressions and detections on it 
+  const handleVideoOnPlay = () => {
+
+    setInterval( async () => {
+
+      if ( figuresOnFace && figuresOnFace.current ) {
+        
+        figuresOnFace.current.innerHTML = faceApi.createCanvasFromMedia( screen.current );
+
+        const screenWindow = {
+          width: videoAxisX,
+          height: videoAxisY
+        }
+
+        // To match the face landmarks and face expressions with the user's face 
+        faceApi.matchDimensions( figuresOnFace.current, screenWindow );
+
+        // Call API to draw face landmarks and face expressions 
+        const traits = await faceApi.detectAllFaces( screen.current, new faceApi.TinyFaceDetectorOptions() ).withFaceLandmarks().withFaceExpressions();
+
+        // We need to resize traits and screen 
+        const traitsWithNewDimensions = faceApi.resizeResults( traits, screenWindow );
+
+        // Draw rectangle around user's face 
+        figuresOnFace && figuresOnFace.current && figuresOnFace.current.getContext( '2d' ).clearRect (0, 0, videoAxisX, videoAxisY );
+
+        // Traits are rendered with their new dimensions on screen  
+        figuresOnFace && figuresOnFace.current && faceApi.draw.drawDetections( figuresOnFace.current, traitsWithNewDimensions );
+
+        // Colocate face landmarks on the user's face  
+        figuresOnFace && figuresOnFace.current && faceApi.draw.drawFaceLandmarks( figuresOnFace.current, traitsWithNewDimensions );
+
+        // Locate face exressions on the user's face 
+        figuresOnFace && figuresOnFace.current && faceApi.draw.drawFaceExpressions( figuresOnFace.current, traitsWithNewDimensions );
+
+      }
+    }, 100 )
+  }
+
+
+
 
   return (
     <div>
