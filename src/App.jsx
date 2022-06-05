@@ -92,8 +92,8 @@ class App extends Component {
 
       <div className="App">
 
-        <nav class="navbar navbar-dark bg-dark">
-          <a class="navbar-brand" href="/">
+        <nav className="navbar navbar-dark bg-dark">
+          <a className="navbar-brand" href="/">
             IntrusionDetectionApp
           </a>
         </nav>
@@ -118,7 +118,7 @@ class App extends Component {
             ))}
         </div>
         <div>
-          <video onPlay={this.reproduce} ref={this.video} autoPlay />
+          <video id="video" width="720" height="560" onPlay={this.reproduce} ref={this.video} autoPlay muted/>
         </div>
           </div>
         </div>
