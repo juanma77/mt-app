@@ -18,9 +18,11 @@ const Home = () => {
           <label for="exampleInputPassword1">Contraseña:</label>
           <input type="password" className="form-control" id="exampleInputPassword1" placeholder="*****" />
         </div>
-        <button type="submit" className="btn btn-primary form-group row">Inicar sesión</button>
+        <button type="submit" className="btn btn-primary form-group row">Iniciar sesión</button>
     </form> 
+
     
+
     </>
 
   )
