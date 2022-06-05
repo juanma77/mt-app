@@ -94,6 +94,17 @@ function App() {
     }, 100 )
   }
 
+  // Stop the video recording 
+  const stopRecording = () => {
+
+    screen.current.pause();
+    screen.current.srcObject.getTracks()[ 0 ].stop();
+    setScanFace( false );
+
+  }
+
+
+
 
 
 
