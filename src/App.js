@@ -17,6 +17,26 @@ function App() {
   const [ loadAllModels, setLoadAllModels ] = useState(false);
   const [ scanFace, setScanFace ] = useState(false);
 
+  // Load all models; we need to use a promise due this is an async operation 
+  useEffect( () => {
+
+    const allModelsLoaded = async () => {
+
+      const pathToModel = process.env.PUBLIC_URL + '/models';
+      
+      Promise.all( [
+        faceApi.nets.tinyFaceDetector.loadFromUri( pathToModel ),
+        faceApi.nets.faceLandmark68Net.loadFromUri( pathToModel ),
+        faceApi.nets.faceRecognitionNet.loadFromUri( pathToModel ),
+        faceApi.nets.faceExpressionNet.loadFromUri( pathToModel ),
+      ] ).then( setLoadAllModels( true ) );
+
+    }
+
+    allModelsLoaded();
+
+  }, [] );
+
 
   return (
     <div>
