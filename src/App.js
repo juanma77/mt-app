@@ -103,14 +103,41 @@ function App() {
 
   }
 
-
-
-
-
-
   return (
     <div>
+      <div style={ { textAlign: 'center', padding: '10px' } }>
+        {
+          scanFace && loadAllModels ?
+            <button onClick={ stopRecording } 
+                    style={ { cursor: 'pointer', backgroundColor: 'red', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' } }>
+              Stop recording
+            </button>
+
+            :
+
+            <button onClick={ recordingHasStarted } 
+                    style={ { cursor: 'pointer', backgroundColor: 'blue', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' } }>
+              Start recording
+            </button>
+        }
+      </div>
       
+      {
+        scanFace ?
+          loadAllModels ?
+            <div>
+              <div style={ { display: 'flex', justifyContent: 'center', padding: '10px' } }>
+                <video width={ videoAxisX } height={ videoAxisY } ref={ screen } onPlay={ handleVideoOnPlay } style={ { borderRadius: '10px' } } />
+                <canvas ref={ figuresOnFace } style={ { position: 'absolute' } } />
+              </div>
+            </div>
+            :
+            <div>Please wait...</div>
+          :
+          <>
+          </>
+      }
+            
     </div>
 
   );
