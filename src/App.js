@@ -37,6 +37,24 @@ function App() {
 
   }, [] );
 
+  // Start the recording calling the navigator object, and handling the error if it exists 
+  const recordingHasStarted = () => {
+
+    setScanFace( true );
+
+    navigator.mediaDevices.getUserMedia( { video: { width: 300 } }).then( stream => {
+        
+      let video = screen.current;
+        video.srcObject = stream;
+        video.play();
+
+      } )
+      .catch( err => {
+        console.error( "The application has encounter an error while starting the video:", err );
+      });
+
+  }
+
 
   return (
     <div>
