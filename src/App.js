@@ -108,16 +108,12 @@ function App() {
       <div style={ { textAlign: 'center', padding: '10px' } }>
         {
           scanFace && loadAllModels ?
-            <button onClick={ stopRecording } 
-                    style={ { cursor: 'pointer', backgroundColor: 'red', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' } }>
-              Stop recording
+            <button className="btn btn-warning" onClick={ stopRecording }>
+              Detener grabación
             </button>
-
             :
-
-            <button onClick={ recordingHasStarted } 
-                    style={ { cursor: 'pointer', backgroundColor: 'blue', color: 'white', padding: '15px', fontSize: '25px', border: 'none', borderRadius: '10px' } }>
-              Start recording
+            <button onClick={ recordingHasStarted } className="btn btn-primary">
+              Iniciar grabación
             </button>
         }
       </div>
