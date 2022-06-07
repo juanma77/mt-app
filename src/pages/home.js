@@ -7,6 +7,7 @@ const Home = () => {
   return (
 
     <>
+    <div>
       <br/>
       <div className="">
         <center><h1>Bienvenido</h1></center>  
@@ -22,10 +23,12 @@ const Home = () => {
           <label htmlFor="exampleInputPassword1">Contraseña:</label>
           <input type="password" className="form-control" id="exampleInputPassword1" placeholder="*****" />
         </div>
-
         <button type="submit" className="btn btn-primary form-group row" onClick={ () => navigate('/dashboard') }>Iniciar sesión</button>
+      </form> 
 
-    </form> 
+      
+
+    </div>
 
     </>
 
