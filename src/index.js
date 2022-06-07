@@ -5,20 +5,23 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home';
-
 import Header from './pages/header';
+import Footer from './pages/footer';
 
 
 export default function AppRoute() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Header />}>
-          <Route index element={<Home />} />
-          <Route path="dashboard" element={ <App/> }/>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Header />}>
+            <Route index element={<Home />} />
+            <Route path="dashboard" element={ <App/> }/>
+          </Route>
+        </Routes>
+        <Footer/>
+      </BrowserRouter>
+    </div>
   );
 }
 
