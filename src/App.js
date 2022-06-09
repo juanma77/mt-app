@@ -29,6 +29,7 @@ function App() {
         faceApi.nets.faceLandmark68Net.loadFromUri( pathToModel ),
         faceApi.nets.faceRecognitionNet.loadFromUri( pathToModel ),
         faceApi.nets.faceExpressionNet.loadFromUri( pathToModel ),
+        faceApi.nets.ageGenderNet.loadFromUri( pathToModel )
       ] ).then( setLoadAllModels( true ) );
 
     }
@@ -61,7 +62,7 @@ function App() {
     setInterval( async () => {
 
       if ( figuresOnFace && figuresOnFace.current ) {
-        
+
         figuresOnFace.current.innerHTML = faceApi.createCanvasFromMedia( screen.current );
 
         const screenWindow = {
@@ -73,7 +74,7 @@ function App() {
         faceApi.matchDimensions( figuresOnFace.current, screenWindow );
 
         // Call API to draw face landmarks and face expressions 
-        const traits = await faceApi.detectAllFaces( screen.current, new faceApi.TinyFaceDetectorOptions() ).withFaceLandmarks().withFaceExpressions();
+        const traits = await faceApi.detectAllFaces( screen.current, new faceApi.TinyFaceDetectorOptions() ).withFaceLandmarks().withFaceExpressions().withAgeAndGender();
 
         // We need to resize traits and screen 
         const traitsWithNewDimensions = faceApi.resizeResults( traits, screenWindow );
@@ -90,8 +91,25 @@ function App() {
         // Locate face exressions on the user's face 
         figuresOnFace && figuresOnFace.current && faceApi.draw.drawFaceExpressions( figuresOnFace.current, traitsWithNewDimensions );
 
+        // To locate text with age and gender on the user's face 
+        traitsWithNewDimensions.forEach( trait => {
+
+          const { age, 
+                  gender, 
+                  genderProbability } = trait
+
+          new faceApi.draw.DrawTextField(
+
+          [ `Age: ${ age.toPrecision(2) } years`, `Gender: ${gender} (${ genderProbability.toPrecision(2)} )` ],
+
+          trait.detection.box.bottomRight
+
+          ).draw(figuresOnFace.current)
+
+        })
       }
     }, 100 )
+
   }
 
   // Stop the video recording 
@@ -121,10 +139,14 @@ function App() {
       {
         scanFace ?
           loadAllModels ?
-            <div>
+            <div style={ { marginRight: '800px' } }>
+
               <div style={ { display: 'flex', justifyContent: 'center', padding: '10px' } }>
+
                 <video width={ videoAxisX } height={ videoAxisY } ref={ screen } onPlay={ handleVideoOnPlay } style={ { borderRadius: '10px' } } />
+
                 <canvas ref={ figuresOnFace } style={ { position: 'absolute' } } />
+
               </div>
             </div>
             :
@@ -133,10 +155,18 @@ function App() {
           <>
           </>
       }
+
+      <div style={ { marginLeft: '900px' } }>
+
+        <input type="file" id="uploadImage"/>
+ 
+ 
+      </div>
             
     </div>
 
   );
+
 }
 
 export default App;
