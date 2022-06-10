@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 
+// Function to validate user is using right credentials on login 
 function validateForm( navigate ) {
 
-  let user = document.forms[ "loginForm" ][ "loginEmail" ].value;
+  let user = document.forms[ "loginForm" ][ "loginUser" ].value;
   let password = document.forms[ "loginForm" ][ "loginPassword" ].value;
 
   if( user && password === "admin"  ) {
@@ -12,6 +13,7 @@ function validateForm( navigate ) {
   } else {
 
     alert( "Please use the admininistrator credentials" );
+    return false; 
    
   }
 
@@ -36,23 +38,21 @@ const Home = () => {
         <div className="form-group row">
 
           <br/>
-          <label htmlFor="inputEmail">Nombre de usuario:</label>
-          <input type="text" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Jon Snow" name="loginEmail" />
+          <label htmlFor="inputUser">Usuario:</label>
+          <input type="text" className="form-control" id="inputUser" placeholder="admin" name="loginUser" required />
 
         </div>
 
         <div className="form-group row">
 
           <label htmlFor="inputPassword">Contraseña:</label>
-          <input type="password" className="form-control" id="inputPassword" placeholder="*****" name="loginPassword"/>
+          <input type="password" className="form-control" id="inputPassword" placeholder="*****" name="loginPassword" required/>
 
         </div>
 
         <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Iniciar sesión</button>
 
       </form> 
-
-      
 
     </div>
 
