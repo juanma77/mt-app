@@ -1,5 +1,22 @@
 import {useNavigate} from 'react-router-dom';
 
+function validateForm( nav ) {
+
+  let user = document.forms[ "loginForm" ][ "loginEmail" ].value;
+  let password = document.forms[ "loginForm" ][ "loginPassword" ].value;
+
+  if( user && password === "admin"  ) {
+
+    nav('/dashboard');
+
+  } else {
+
+    alert("Please login using administrator credentials");
+
+  }
+
+}
+
 const Home = () => {
 
   const navigate = useNavigate();
@@ -12,18 +29,27 @@ const Home = () => {
       <div className="">
         <center><h1>Bienvenido</h1></center>  
       </div>
-      <form className="container">
+
+      <form name="loginForm" className="container">
         <br/>
+
         <div className="form-group row">
+
           <br/>
-          <label htmlFor="exampleInputEmail1">Correo electrónico:</label>
-          <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ejemplo@gmail.com" />
+          <label htmlFor="inputEmail">Nombre de usuario:</label>
+          <input type="text" className="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Jon Snow" name="loginEmail" />
+
         </div>
+
         <div className="form-group row">
-          <label htmlFor="exampleInputPassword1">Contraseña:</label>
-          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="*****" />
+
+          <label htmlFor="inputPassword">Contraseña:</label>
+          <input type="password" className="form-control" id="inputPassword" placeholder="*****" name="loginPassword"/>
+
         </div>
-        <button type="submit" className="btn btn-primary form-group row" onClick={ () => navigate('/dashboard') }>Iniciar sesión</button>
+
+        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) }   >Iniciar sesión</button>
+
       </form> 
 
       
