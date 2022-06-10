@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/home';
 import Header from './pages/header';
 import Footer from './pages/footer';
+import About from './pages/about';
 
 
 export default function AppRoute() {
@@ -17,6 +18,7 @@ export default function AppRoute() {
           <Route path="/" element={<Header />}>
             <Route index element={<Home />} />
             <Route path="dashboard" element={ <App/> }/>
+            <Route path="about" element={ <About/> }/>
           </Route>
         </Routes>
         <Footer/>
