@@ -54,6 +54,13 @@ const Home = () => {
 
       </form> 
 
+      <div>
+        
+          PLEASE NOTE: Use "admin" and "admin" as username and password 
+
+      </div>
+
+
     </div>
 
     </>
