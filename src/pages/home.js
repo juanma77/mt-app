@@ -1,18 +1,18 @@
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function validateForm( nav ) {
+function validateForm( navigate ) {
 
   let user = document.forms[ "loginForm" ][ "loginEmail" ].value;
   let password = document.forms[ "loginForm" ][ "loginPassword" ].value;
 
   if( user && password === "admin"  ) {
 
-    nav('/dashboard');
+    navigate("/dashboard");
 
   } else {
 
-    alert("Please login using administrator credentials");
-
+    alert( "Please use the admininistrator credentials" );
+   
   }
 
 }
@@ -30,7 +30,7 @@ const Home = () => {
         <center><h1>Bienvenido</h1></center>  
       </div>
 
-      <form name="loginForm" className="container">
+      <form name="loginForm" className="container" id="loginForm">
         <br/>
 
         <div className="form-group row">
@@ -48,7 +48,7 @@ const Home = () => {
 
         </div>
 
-        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) }   >Iniciar sesión</button>
+        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Iniciar sesión</button>
 
       </form> 
 
