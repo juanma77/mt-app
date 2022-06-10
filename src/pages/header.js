@@ -14,12 +14,15 @@ const Header = () => {
                     <ul className="navbar-nav mr-auto">
                         
                         <li className="nav-item active">
-                            <Link to="/"> Home &nbsp; 
-                            </Link>
+                            <Link to="/"> Home &nbsp; </Link>
                         </li>
                         
                         <li className="nav-item">
-                            <Link to="/about">About</Link>
+                            <Link to="/about">About &nbsp; </Link>
+                        </li>
+
+                        <li className="nav-item">
+                            <Link to="/contact">Contact </Link>
                         </li>
                     </ul>
                 </div>
