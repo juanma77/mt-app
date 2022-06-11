@@ -29,7 +29,7 @@ const Home = () => {
     <div>
       <br/>
       <div className="">
-        <center><h1>Bienvenido</h1></center>  
+        <center><h1>Welcome!</h1></center>  
       </div>
 
       <form name="loginForm" className="container" id="loginForm">
@@ -38,30 +38,31 @@ const Home = () => {
         <div className="form-group row">
 
           <br/>
-          <label htmlFor="inputUser">Usuario:</label>
+          <label htmlFor="inputUser">Username:</label>
           <input type="text" className="form-control" id="inputUser" placeholder="admin" name="loginUser" required />
 
         </div>
 
         <div className="form-group row">
 
-          <label htmlFor="inputPassword">Contraseña:</label>
+          <label htmlFor="inputPassword">Password:</label>
           <input type="password" className="form-control" id="inputPassword" placeholder="*****" name="loginPassword" required/>
 
         </div>
 
-        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Iniciar sesión</button>
+        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Login</button>
+
+        <div className= "container">
+          <small id="loginHelp" className="form-text text-muted">PLEASE NOTE: Use "admin" and "admin" as username and password</small>
+        </div>
 
       </form> 
 
-      <div className= "container">
-        
-        <small id="loginHelp" className="form-text text-muted">PLEASE NOTE: Use "admin" and "admin" as username and password</small>
-
-      </div>
 
 
     </div>
+
+    
 
     </>
 
