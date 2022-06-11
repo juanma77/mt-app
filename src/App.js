@@ -139,16 +139,44 @@ function App() {
       {
         scanFace ?
           loadAllModels ?
-            <div style={ { marginRight: '800px' } }>
 
-              <div style={ { display: 'flex', justifyContent: 'center', padding: '10px' } }>
+          <div class="container">
+ 
+            <div class="row">
+              <div class="col">
+                 
 
-                <video width={ videoAxisX } height={ videoAxisY } ref={ screen } onPlay={ handleVideoOnPlay } style={ { borderRadius: '10px' } } />
+                <div>
 
-                <canvas ref={ figuresOnFace } style={ { position: 'absolute' } } />
 
+
+                  <div>
+
+                    <div style={ { display: 'flex', justifyContent: 'center', padding: '10px' } }>
+                      <video width={ videoAxisX } height={ videoAxisY } ref={ screen } onPlay={ handleVideoOnPlay } style={ { borderRadius: '10px' } } />
+                      <canvas ref={ figuresOnFace } style={ { position: 'absolute' } } />
+                    </div>
+
+                  </div>
+
+                </div>
+
+
+                
               </div>
-            </div>
+
+              <div class="col">
+                  <div className="card" style={{ width: '18rem' }}>
+
+                     <p>asdasda</p>
+                     <p>asdasda</p>
+                     <p>asdasda</p>
+
+                  </div>
+              </div>
+          </div>
+      </div>
+      
             :
             <div>Please wait...</div>
           :
@@ -156,12 +184,7 @@ function App() {
           </>
       }
 
-      <div style={ { marginLeft: '900px' } }>
 
-        <input type="file" id="uploadImage"/>
- 
- 
-      </div>
             
     </div>
 
