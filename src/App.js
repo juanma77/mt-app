@@ -127,11 +127,11 @@ function App() {
         {
           scanFace && loadAllModels ?
             <button className="btn btn-warning" onClick={ stopRecording }>
-              Detener grabación
+              Stop video recording
             </button>
             :
             <button onClick={ recordingHasStarted } className="btn btn-primary">
-              Iniciar grabación
+              Start video recording
             </button>
         }
       </div>
