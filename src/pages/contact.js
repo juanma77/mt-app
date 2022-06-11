@@ -24,7 +24,7 @@ const Contact = () => {
 
                         <div className="card" style={{ width: '18rem' }}>
 
-                            <a href="https://github.com/juanma77"><img src={ "../images/author.PNG" } className="card-img-top" alt="Author GitHub page " /></a>
+                            <img src={ "../images/author.PNG" } className="card-img-top" alt="Author GitHub page " />
 
                             <div className="card-body">
                                 
