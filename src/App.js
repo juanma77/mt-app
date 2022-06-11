@@ -162,15 +162,16 @@ function App() {
                 </div>
 
 
-                
+
               </div>
 
               <div class="col">
                   <div className="card" style={{ width: '18rem' }}>
 
-                     <p>asdasda</p>
-                     <p>asdasda</p>
-                     <p>asdasda</p>
+                     <p>Si a la persona se le detectan los ojos y está feliz, probablemente no es un intruso</p>
+                     <p>Si a la persona no se le detectan los ojos y está feliz, probablemente es un intruso</p>
+                     <p>Si a la persona no se le detectan los ojos y está enojada, muy probablemente es un intruso</p>
+                     <p>Si a la persona no se le detectan los ojos y está sorprendida, muy probablemente es un intruso</p>
 
                   </div>
               </div>
