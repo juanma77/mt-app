@@ -2,16 +2,63 @@ const Contact = () => {
 
     return (
         <>  
-           <div className="container">
-            <div className="jumbotron">
-                <h1 className="display-4">About IntruderApp</h1>
-                <p className="lead">This is an intrusion detection application. It will detect face expressions and traits, and it will tell you if the person infront of the webcamera is an intruder. 
-                But first, you need to login! So go to Home to start using this app. </p>
-                <hr className="my-4" />
-                <p>It uses a Convolutional Neural Network (CNN) to perform the face tracking and recognition. </p>
-                
+            <br/><br/><br/><br/><br/>
+
+            <div class="container">
+ 
+                <div class="row">
+                    <div class="col">
+                        <div className="card" style={{ width: '18rem' }}>
+
+                            <a href="https://github.com/juanma77"><img src={ "../images/github.png" } className="card-img-top" alt="Author GitHub page " /></a>
+
+                            <div className="card-body">
+                                <h5 className="card-title">GitHub</h5>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div className="card" style={{ width: '18rem' }}>
+
+                            <a href="https://github.com/juanma77"><img src={ "../images/author.PNG" } className="card-img-top" alt="Author GitHub page " /></a>
+
+                            <div className="card-body">
+                                
+                                <h5 className="card-title">Author</h5>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+
+                    <div class="col">
+
+                        <div className="card" style={{ width: '18rem' }}>
+
+                            <a href="https://www.linkedin.com/in/juan-manuel-l%C3%B3pez-santana-094486104/"><img src={ "../images/linkedin.png" } className="card-img-top" alt="Author Linkedin page " /></a>
+
+                            <div className="card-body">
+                                <h5 className="card-title">LinkedIn</h5>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                </div>
             </div>
-           </div> 
+
+
+
+
+
+
+
+
+            
         </>
     )
 };

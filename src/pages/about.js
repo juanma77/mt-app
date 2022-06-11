@@ -2,6 +2,7 @@ const About = () => {
 
     return (
         <>  
+           <br/><br/><br/><br/><br/>
            <div className="container">
             <div className="jumbotron">
                 <h1 className="display-4">About IntruderApp</h1>

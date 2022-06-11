@@ -56,7 +56,7 @@ const Home = () => {
 
       <div className= "container">
         
-        <small id="loginHelp" class="form-text text-muted">PLEASE NOTE: Use "admin" and "admin" as username and password</small>
+        <small id="loginHelp" className="form-text text-muted">PLEASE NOTE: Use "admin" and "admin" as username and password</small>
 
       </div>
 
