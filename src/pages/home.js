@@ -12,7 +12,7 @@ function validateForm( navigate ) {
 
   } else {
 
-    alert( "Please use the admininistrator credentials" );
+    alert( "Por favor utiliza 'admin' y 'admin' como usuario y contraseña " );
     return false; 
    
   }
