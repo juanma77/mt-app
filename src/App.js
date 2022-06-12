@@ -190,12 +190,93 @@ function App() {
               </div>
 
               <div class="col">
-                  <div className="card" style={{ width: '18rem' }}>
+                  <div className="" style={{ width: '18rem' }}>
 
-                     <p>Si a la persona se le detectan los ojos y está feliz, probablemente no es un intruso</p>
-                     <p>Si a la persona no se le detectan los ojos y está feliz, probablemente es un intruso</p>
-                     <p>Si a la persona no se le detectan los ojos y está enojada, muy probablemente es un intruso</p>
-                     <p>Si a la persona no se le detectan los ojos y está sorprendida, muy probablemente es un intruso</p>
+                   
+                  <table class="table" style={ { fontSize: '11px' } }>
+                    <thead class="thead-dark">
+                      <tr>
+                        
+                        <th scope="col">Expresión</th>
+                        <th scope="col">Rasgo no detectado</th>
+                        <th scope="col">Probabilidad de intruso</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                       
+                        <td>Sorpresa</td>
+                        <td>Boca, nariz u ojos</td>
+                        <td>Muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Enojo</td>
+                        <td>Boca, nariz u ojos</td>
+                        <td>Muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Felicidad</td>
+                        <td>Ninguno</td>
+                        <td>Muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Neutral</td>
+                        <td>Boca, nariz u ojos</td>
+                        <td>Probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Sorpresa</td>
+                        <td>Ninguno</td>
+                        <td>Probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Enojo</td>
+                        <td>Ninguno</td>
+                        <td>Probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Felicidad</td>
+                        <td>Ninguno</td>
+                        <td>No muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Neutral</td>
+                        <td>Ninguno</td>
+                        <td>No muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Enojo</td>
+                        <td>Ninguno</td>
+                        <td>No muy probable</td>
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Cualquiera</td>
+                        <td>Rostro</td>
+                        <td>Muy probable</td>
+                      </tr>
+
+                      
+
+                    </tbody>
+                  </table>
 
                   </div>
               </div>
