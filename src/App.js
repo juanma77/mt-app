@@ -19,9 +19,7 @@ function App() {
 
   // Load all models; we need to use a promise due this is an async operation 
   useEffect( () => {
-
     const allModelsLoaded = async () => {
-
       const pathToModel = process.env.PUBLIC_URL + '/models';
       
       Promise.all( [
@@ -40,9 +38,7 @@ function App() {
 
   // Start the recording calling the navigator object, and handling the error if it exists 
   const recordingHasStarted = () => {
-
     setScanFace( true );
-
     navigator.mediaDevices.getUserMedia( { video: { width: 300 } }).then( stream => {
         
       let video = screen.current;
@@ -51,14 +47,13 @@ function App() {
 
       } )
       .catch( err => {
-        console.error( "The application has encounter an error while starting the video:", err );
+        console.error( "La aplicación encontró un error al intentar iniciar la cámara web:", err );
       });
 
   }
 
   // When recording started, we perform all operations we need on the user's face, so we draw landmarks, expressions and detections on it 
   const handleVideoOnPlay = () => {
-
     setInterval( async () => {
 
       if ( figuresOnFace && figuresOnFace.current ) {
@@ -130,9 +125,7 @@ function App() {
               Stop video recording
             </button>
             :
-
             <div>
-
 
               <br/>
               <div className="container">
@@ -146,156 +139,102 @@ function App() {
                   <p>¡Adelante, a detectar intrusos!</p>
                 </div>
               </div> 
-              
               <button onClick={ recordingHasStarted } className="btn btn-primary">
               Start video recording
               </button>
-
             </div>
-
-            
-
-
-
         }
       </div>
-      
       {
         scanFace ?
           loadAllModels ?
-
           <div class="container">
- 
             <div class="row">
               <div class="col">
-                 
-
                 <div>
-
-
-
                   <div>
-
                     <div style={ { display: 'flex', justifyContent: 'center', padding: '10px' } }>
                       <video width={ videoAxisX } height={ videoAxisY } ref={ screen } onPlay={ handleVideoOnPlay } style={ { borderRadius: '10px' } } />
                       <canvas ref={ figuresOnFace } style={ { position: 'absolute' } } />
                     </div>
-
                   </div>
-
                 </div>
-
-
-
               </div>
-
               <div class="col">
-                  <div className="" style={{ width: '18rem' }}>
-
-                   
-                  <table class="table" style={ { fontSize: '11px' } }>
-                    <thead class="thead-dark">
-                      <tr>
-                        
-                        <th scope="col">Expresión</th>
-                        <th scope="col">Rasgo no detectado</th>
-                        <th scope="col">Probabilidad de intruso</th>
+                  <div className="" style={{ width: '18rem' }}>             
+                    <table class="table" style={ { fontSize: '11px' } }>
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col">Expresión</th>
+                          <th scope="col">Rasgo no detectado</th>
+                          <th scope="col">Probabilidad de intruso</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                       
                         <td>Sorpresa</td>
                         <td>Boca, nariz u ojos</td>
                         <td>Muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Enojo</td>
                         <td>Boca, nariz u ojos</td>
                         <td>Muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Felicidad</td>
                         <td>Ninguno</td>
                         <td>Muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Neutral</td>
                         <td>Boca, nariz u ojos</td>
                         <td>Probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Sorpresa</td>
                         <td>Ninguno</td>
                         <td>Probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Enojo</td>
                         <td>Ninguno</td>
                         <td>Probable</td>
                       </tr>
-
-                      <tr>
-                        
+                      <tr>                     
                         <td>Felicidad</td>
                         <td>Ninguno</td>
                         <td>No muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Neutral</td>
                         <td>Ninguno</td>
                         <td>No muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Enojo</td>
                         <td>Ninguno</td>
                         <td>No muy probable</td>
                       </tr>
-
                       <tr>
-                        
                         <td>Cualquiera</td>
                         <td>Rostro</td>
                         <td>Muy probable</td>
                       </tr>
-
-                      
-
                     </tbody>
                   </table>
-
                   </div>
               </div>
           </div>
       </div>
-      
-            :
+          :
             <div>Please wait...</div>
           :
           <>
-          </>
-      }
-
-
-            
+        </>
+      }      
     </div>
-
   );
-
 }
 
 export default App;
