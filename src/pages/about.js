@@ -1,16 +1,14 @@
 const About = () => {
-
     return (
         <>  
            <br/><br/><br/><br/><br/>
            <div className="container">
             <div className="jumbotron">
-                <h1 className="display-4">About IntruderApp</h1>
-                <p className="lead">This is an intrusion detection application. It will detect face expressions and traits, and it will tell you if the person infront of the webcamera is an intruder. 
-                But first, you need to login! So go to Home to start using this app. </p>
+                <h1 className="display-4">Acerca de esta Aplicación Web</h1>
+                <p className="lead">Esta es una aplicación para la detección de intrusos. Se encarga de detectar las expresiones y rasgos faciales de una persona, y dados esos datos de entrada te hará saber si la persona frente a la cámara web es un intruso o no. 
+                La aplicación hace uso de una Red Neuronal Convolucional (RNN) para realizar la detección y reconocimiento faciales. </p>
                 <hr className="my-4" />
-                <p>It uses a Convolutional Neural Network (CNN) to perform the face tracking and recognition. </p>
-                
+                <p>Para utilizarla debes de iniciar sesión, ¡así que dirígete a la página de Inicio para hacerlo!</p>
             </div>
            </div> 
         </>
