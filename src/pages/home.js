@@ -20,52 +20,33 @@ function validateForm( navigate ) {
 }
 
 const Home = () => {
-
   const navigate = useNavigate();
-
   return (
-
     <>
     <div>
       <br/>
       <div className="">
-        <center><h1>Welcome!</h1></center>  
+        <center><h1>¡Bienvenido!</h1></center>  
       </div>
-
       <form name="loginForm" className="container" id="loginForm">
         <br/>
-
         <div className="form-group row">
-
           <br/>
-          <label htmlFor="inputUser">Username:</label>
+          <label htmlFor="inputUser">Usuario:</label>
           <input type="text" className="form-control" id="inputUser" placeholder="admin" name="loginUser" required />
-
         </div>
 
         <div className="form-group row">
-
-          <label htmlFor="inputPassword">Password:</label>
+          <label htmlFor="inputPassword">Contraseña:</label>
           <input type="password" className="form-control" id="inputPassword" placeholder="*****" name="loginPassword" required/>
-
         </div>
-
-        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Login</button>
-
+        <button type="submit" className="btn btn-primary form-group row" onClick={ () => validateForm(navigate) } >Inicar sesión</button>
         <div className= "container">
-          <small id="loginHelp" className="form-text text-muted">PLEASE NOTE: Use "admin" and "admin" as username and password</small>
+          <small id="loginHelp" className="form-text text-muted">NOTA: Por favor utiliza "admin" y "admin" como usuario y contraseña, respectivamente</small>
         </div>
-
       </form> 
-
-
-
     </div>
-
-    
-
     </>
-
   )
 };
   
