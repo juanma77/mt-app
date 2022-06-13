@@ -1,5 +1,9 @@
 import '../css/contact.css';
 
+import author from '../../public/images/author.png';
+import github from '../../public/images/github.png';
+import linkedin from '../../public/images/linkedin.png';
+
 const Contact = () => {
     return (
         <>  
@@ -8,7 +12,7 @@ const Contact = () => {
                 <div class="row">
                     <div class="col">
                         <div className="card">
-                            <a href="https://github.com/juanma77"><img src={ "..mt-app/images/github.png" } className="card-img-top" alt="Author GitHub page " /></a>
+                            <a href="https://github.com/juanma77"><img src={ github } className="card-img-top" alt="Author GitHub page " /></a>
                             <div className="card-body">
                                 <h5 className="card-title">GitHub</h5>
                             </div>
@@ -17,7 +21,7 @@ const Contact = () => {
 
                     <div class="col">
                         <div className="card">
-                            <img src={ "../images/author.PNG" } className="card-img-top" alt="Author GitHub page " />
+                            <img src={ author} className="card-img-top" alt="Author GitHub page " />
                             <div className="card-body">
                                 
                                 <h5 className="card-title">Autor</h5>
@@ -27,7 +31,7 @@ const Contact = () => {
 
                     <div class="col">
                         <div className="card">
-                            <a href="https://www.linkedin.com/in/juan-manuel-l%C3%B3pez-santana-094486104/"><img src={ "..mt-app/images/linkedin.png" } className="card-img-top" alt="Author Linkedin page " /></a>
+                            <a href="https://www.linkedin.com/in/juan-manuel-l%C3%B3pez-santana-094486104/"><img src={ linkedin } className="card-img-top" alt="Author Linkedin page " /></a>
                             <div className="card-body">
                                 <h5 className="card-title">LinkedIn</h5>
                             </div>
