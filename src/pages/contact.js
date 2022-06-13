@@ -1,8 +1,8 @@
 import '../css/contact.css';
 
-import author from '../../public/images/author.png';
-import github from '../../public/images/github.png';
-import linkedin from '../../public/images/linkedin.png';
+import author from '../images/author.png'
+import github from '../images/github.png';
+import linkedin from '../images/linkedin.png';
 
 const Contact = () => {
     return (
@@ -21,7 +21,7 @@ const Contact = () => {
 
                     <div class="col">
                         <div className="card">
-                            <img src={ author} className="card-img-top" alt="Author GitHub page " />
+                            <img src={ author } className="card-img-top" alt="Author GitHub page " />
                             <div className="card-body">
                                 
                                 <h5 className="card-title">Autor</h5>
