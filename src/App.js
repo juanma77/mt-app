@@ -216,11 +216,6 @@ function App() {
                         <td>Ninguno</td>
                         <td>No muy probable</td>
                       </tr>
-                      <tr>
-                        <td>Cualquiera</td>
-                        <td>Rostro</td>
-                        <td>Muy probable</td>
-                      </tr>
                     </tbody>
                   </table>
                   </div>
