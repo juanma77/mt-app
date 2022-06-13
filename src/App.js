@@ -130,11 +130,11 @@ function App() {
               <br/>
               <div className="container">
                 <div className="jumbotron">
-                  <h1 className="display-4">Antes de iniciar, algunos tips</h1>
+                  <h1 className="display-4">Antes de iniciar, algunos tips:</h1>
                   <p className="lead"> Al presionar el botón de "Detectar intrusos" se requerirá que 
-                  le otorgues permisos al navegador para utilizar la cámara web.</p>
+                  le otorgue permiso al navegador para utilizar tu cámara web.</p>
                   <p className="lead">Para una adecuada detección de expresiones y rasgos faciales, asegúrate de tener una distancia media entre tu rostro y la cámara web.</p>
-                  <p className="lead">El proceso de detección puede consumir buena cantidad de recursos, por lo que te recomendamos cerrar otras aplicaciones. </p>
+                  <p className="lead">El proceso de detección puede consumir recursos, por lo que te recomendamos cerrar otras aplicaciones. </p>
                   <hr className="my-4" />
                   <p>¡Adelante, a detectar intrusos!</p>
                 </div>
