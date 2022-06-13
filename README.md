@@ -15,7 +15,7 @@ This will install all dependencies needed to execute the project.
 
 ### Run `npm run start` on a Windows/Git/Bash terminal
 
-The server will start and you will see the applicacion runnning!\
+The server will start and you will see the application runnning!\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
