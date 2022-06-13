@@ -17,7 +17,9 @@ const Contact = () => {
 
                     <div class="col">
                         <div className="card">
-                            <img src={ "../images/author.PNG" } className="card-img-top" alt="Author GitHub page " />
+                            <p> Juan Manuel López Santana </p>
+                            <p> Estudiante de la Universidad de Burgos </p>
+                            <p> Junio 2022 </p>
                             <div className="card-body">
                                 
                                 <h5 className="card-title">Autor</h5>
