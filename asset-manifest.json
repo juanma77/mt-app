@@ -1,16 +1,15 @@
 {
   "files": {
     "main.css": "/mt-app/static/css/main.64441406.css",
-    "main.js": "/mt-app/static/js/main.d153da02.js",
+    "main.js": "/mt-app/static/js/main.ced30470.js",
     "static/js/787.7fd22929.chunk.js": "/mt-app/static/js/787.7fd22929.chunk.js",
-    "static/media/author.png": "/mt-app/static/media/author.8695cbc682d865bdf3e7.png",
     "index.html": "/mt-app/index.html",
     "main.64441406.css.map": "/mt-app/static/css/main.64441406.css.map",
-    "main.d153da02.js.map": "/mt-app/static/js/main.d153da02.js.map",
+    "main.ced30470.js.map": "/mt-app/static/js/main.ced30470.js.map",
     "787.7fd22929.chunk.js.map": "/mt-app/static/js/787.7fd22929.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.64441406.css",
-    "static/js/main.d153da02.js"
+    "static/js/main.ced30470.js"
   ]
 }
